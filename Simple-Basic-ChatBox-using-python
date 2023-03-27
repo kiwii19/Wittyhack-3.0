@@ -1,0 +1,43 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+# Define the chat pairs
+pairs = [
+    [
+        r"my name is (.*)",
+        ["Hello %1, how are you today?"]
+    ],
+    [
+        r"hi|hello|hey",
+        ["Hello!", "Hi there!"]
+    ],
+    [
+        r"what is your name?",
+        ["My name is Chatbot, nice to meet you!"]
+    ],
+    [
+        r"how are you?",
+        ["I'm doing well, thank you! How about you?"]
+    ],
+    [
+        r"what can you do?",
+        ["I can answer your questions or just have a chat with you. How can I assist you today?"]
+    ],
+    [
+        r"(.*) (weather|temperature) in (.*)",
+        ["I'm sorry, I cannot provide real-time weather information at the moment."]
+    ],
+    [
+        r"quit|exit",
+        ["Thank you for chatting with me. Goodbye!"]
+    ]
+]
+
+# Define the chatbot function
+def chatbot():
+    print("Hello, I'm Chatbot. How can I assist you today?")
+    chat = Chat(pairs, reflections)
+    chat.converse()
+
+# Run the chatbot
+chatbot()
